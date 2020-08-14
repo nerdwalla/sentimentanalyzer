@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Analyzer</title>
+    <link rel="icon" href="/img/analyzer.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+    <script>
+        function myFunction() {
+            const loaderDiv = document.querySelector('.loading')
+            loaderDiv.style.display = "block";
+        }
+
+        $('.one').ready(function () {
+            setTimeout(function () {
+                $('.two').css("display", "block");
+            }, 800);
+            setTimeout(function () {
+                $('.three').css("display", "block");
+            }, 1600);
+             setTimeout(function () {
+                $('.four').css("display", "block");
+            }, 2400);
+            setTimeout(function () {
+                $('#bottom-form').css("display", "block");
+            }, 3000);
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="loading" style="display: none;">
+        <div class="loader"></div>
+    </div>
+
+    <div id="boxes">
+        <div id="right-box">
+            <div class="icon-bar">
+                <div style="display:inline-block"> <a href="/index">Home</a></div>
+                <br />
+                <div style="display:inline-block"> <a href="/analyzer" class="active">Analyzer</a></div>
+                <br />
+                <div style="display:inline-block"><a href="/about">About</a></div>
+                <br />
+                <div style="display:inline-block"><a href="/sources">Sources</a></div>
+                <br />
+            </div>
+        </div>
+        <div id="left-box">
+            <div id="main-content" class="main-content">
+
+                <div id="main-message">
+                    <div class="yours messages">
+                        <div class="message one">
+                            Hey!
+                        </div>
+                        <div class="message two">
+                            Want to analyze how a business is doing?
+                        </div>
+                        <div class="message three">
+                            Let's try it and see
+                        </div>
+                        <div class="message four last">
+                            Which resturant/coffee place do you want to try? (Like: Starbucks)
+                        </div>
+                    </div>
+                    <div class="mine messages">
+                        <div id="bizName" class="message last" style="display: none;">
+                            idk
+                        </div>
+                    </div>
+                    <div class="yours five messages">
+                        <div class="message last" id="locationQuestion" style="display: none;">
+                            Which city/town is it in? Please specify both City, State (Like: Madison, WI)
+                        </div>
+                    </div>
+                    <div class="mine messages">
+                        <div id="locationName" class="message last" style="display: none;">
+                            idk
+                        </div>
+                    </div>
+                </div>
+                <div id="bottom-form">
+                    <form id="bizForm">
+                        <input type="text" id="bizInput" class="user-textbox" name="businessname"
+                            placeholder="Business">
+                        <button type="submit" id="bizSubmit" class="user-input-button">Send</button>
+                    </form>
+                    <br />
+                    <form id="locationForm" method="POST" action="/result" style="display: none;">
+                        <input type="text" id="bizInputHidden" class="user-textbox" name="bizInputHidden"
+                            style="display: none;">
+                        <input type="text" id="locInput" class="user-textbox" name="locationname"
+                            placeholder="Location">
+                        <button type="submit" onclick="myFunction()" id="locationSubmit"
+                            class="user-input-button">Send</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
