@@ -33,6 +33,7 @@ app.get('', (req, res) => {
 })
 
 app.get('/index', (req, res) => {
+    console.log('In Index')
     res.render('index', {
         title: 'Index',
         name: 'Sathya B',
