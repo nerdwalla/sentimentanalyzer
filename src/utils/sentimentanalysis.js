@@ -2,8 +2,8 @@
 const request = require('request')
 
 const analyzeSentimentOfText = (text, callback) => {
-    var apiKey = "AIzaSyCCJICUsYjjg0F-BNY2gLvLc3YWWRqDu8U";
-    var apiEndpoint = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + apiKey;
+    const apiKey = process.env.GOOGLE_API_KEY
+    const apiEndpoint = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + apiKey;
 
     var reviewData = {
         language: 'en-us',

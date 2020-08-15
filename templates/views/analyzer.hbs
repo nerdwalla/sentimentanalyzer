@@ -27,7 +27,7 @@
                 $('.four').css("display", "block");
             }, 2400);
             setTimeout(function () {
-                $('#bottom-form').css("display", "block");
+                $('#bottom-form').css("display", "inline-block");
             }, 3000);
         });
     </script>
@@ -88,18 +88,21 @@
                 </div>
                 <div id="bottom-form">
                     <form id="bizForm">
-                        <input type="text" id="bizInput" class="user-textbox" name="businessname"
-                            placeholder="Business">
-                        <button type="submit" id="bizSubmit" class="user-input-button">Send</button>
+                        <button type="submit" id="bizSubmit" class="user-input-button"
+                            style="float: right;">Send</button>
+                        <div style="overflow: hidden; padding-right: .5em;">
+                            <input type="text" id="bizInput" class="user-textbox" name="businessname" placeholder="Business" style="width: 100%;">
+                        </div>
+
+
                     </form>
                     <br />
                     <form id="locationForm" method="POST" action="/result" style="display: none;">
-                        <input type="text" id="bizInputHidden" class="user-textbox" name="bizInputHidden"
-                            style="display: none;">
-                        <input type="text" id="locInput" class="user-textbox" name="locationname"
-                            placeholder="Location">
-                        <button type="submit" onclick="myFunction()" id="locationSubmit"
-                            class="user-input-button">Send</button>
+                        <button type="submit" onclick="myFunction()" id="locationSubmit" class="user-input-button" style="float: right;">Send</button>
+                        <div style="overflow: hidden; padding-right: .5em;">
+                            <input type="text" id="bizInputHidden" class="user-textbox" name="bizInputHidden" style="display: none;">
+                            <input type="text" id="locInput" class="user-textbox" name="locationname" placeholder="Location" style="width: 100%;">
+                        </div>
                     </form>
                 </div>
 

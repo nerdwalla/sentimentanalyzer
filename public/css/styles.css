@@ -73,8 +73,17 @@ input[type=text] {
 #bottom-form {
 	position: fixed;
 	bottom: 0;
-	width: 100%;
+	/* width: 100%; */
 	display: none;
+}
+
+#bottom-form button {
+	/* position: fixed;
+	bottom: 0;
+	/* width: 100%; 
+	display: none; */
+	/* float: right; */
+	left: 0;
 }
 
 .chat {
@@ -356,3 +365,82 @@ input[type=text] {
 	display: none;
   } */
   
+  div.positive_review {
+	width: 100%;
+	height: 100px;
+	background-image: url('/img/correct.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* border: 1px solid red; */
+	background-repeat: no-repeat;
+	/* background-attachment: fixed; */
+	background-position: center; 
+  
+	padding-top: 10px
+  }
+  
+  div.negative_review {
+	width: 100%;
+	height: 100px;
+	background-image: url('/img/wrong.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* border: 1px solid red; */
+	background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center; 
+
+	padding-top: 10px
+  }
+
+  div.overall_review {
+	width: 100%;
+	height: 100px;
+	background-image: url('/img/info.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* border: 1px solid red; */
+	background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center; 
+
+	padding-top: 10px
+  }
+
+  .row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+  }
+  /* .result-one {
+	border: solid 2px #eaeaea;
+	flex: 1;
+	height: 100px;
+	margin-bottom: 20px;
+  }
+  .result-two {
+	border: solid 2px #eaeaea;
+	flex: 1;
+	height: 100px;
+	margin-bottom: 20px;
+  }
+  .result-three {
+	border: solid 2px #eaeaea;
+	flex-basis: 100%;
+	height: 100px;
+	margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 500px) {
+	.one {
+	  flex-basis: 100%;
+	  order: 1;
+	}
+	.two {
+	  flex-basis: 100%;
+	  order: 3;
+	}
+	.three {
+	  flex-basis: 100%;
+	  order: 2;
+	}
+  } */

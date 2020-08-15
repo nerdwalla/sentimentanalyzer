@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const bodyParser = require('body-parser');
 const getReviews = require('./utils/findbusiness')
 const analyzeSentimentOfText = require('./utils/sentimentanalysis')
+require('dotenv').config()
 // var exec = require('child_process').exec
 
 const app = express()
@@ -146,7 +147,7 @@ app.post('/result', (req, res) => {
                                 final_score = score / total_reviews
 
                                 const resp = {
-                                    final_score,
+                                    final_score: Math.round(final_score * 100) / 100,
                                     best_review: cleanReview(best_review),
                                     best_review_rating,
                                     worst_review: cleanReview(worst_review),

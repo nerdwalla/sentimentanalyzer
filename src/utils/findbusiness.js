@@ -1,5 +1,6 @@
 'use strict';
-let API_KEY = "Poh1MHuBIPG9ZGrbFGGqW4WXI2oe2lZg2EQe13R5LOGt9mxDHA_ZceT4TgZE6WIfNTalC9R1aLKbJx2TAm5AhAEcI1s2Y1nBComVmxl5jt_sBq3RQIT7ZgzPgv4zX3Yx"
+
+const API_KEY = process.env.YELP_API_KEY
 const yelp = require('yelp-fusion');
 const client = yelp.client(API_KEY);
 

@@ -25,18 +25,20 @@
         <div id="left-box" style="width: 75%;">
             <div class="main-content">
                 <div class="row" style="padding-top: 10%;">
-                    <div class="result-column">
+                    <div class="result-column result-one">
                         <div class="card">
-                            <img src="/img/info.png"  alt="Information" height="100px" width="100px" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px">
+                            <div class="overall_review"></div>
+                            {{!-- <img src="/img/info.png"  alt="Information" height="100px" width="100px" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px"> --}}
                             <div class="container">
                                 <h2>Overall Sentiment</h2>
                                 <p class="title"> The Overall rating is: {{final_score}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="result-column">
+                    <div class="result-column result-two">
                         <div class="card">
-                            <img src="/img/correct.png" height="100px" width="100px" alt="Positive" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px">
+                            <div class="positive_review"></div>
+                            {{!-- <img src="/img/correct.png" height="100px" width="100px" alt="Positive" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px"> --}}
                             <div class="container">
                                 <h2>Positive Sentiment</h2>
                                 <p class="title"> The best review rating is : {{best_review_rating}}</p>
@@ -44,9 +46,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="result-column">
+                    <div class="result-column result-three">
                         <div class="card">
-                            <img src="/img/wrong.png" height="100px" width="100px" alt="Negative" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px;">
+                            <div class="negative_review"></div>
+                            {{!-- <img src="/img/wrong.png" height="100px" width="100px" alt="Negative" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px;"> --}}
                             <div class="container">
                                 <h2>Negative Sentiment</h2>
                                 <p class="title"> The worst review rating is : {{worst_review_rating}}</p>
