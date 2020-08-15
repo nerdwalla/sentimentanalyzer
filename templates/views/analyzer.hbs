@@ -6,9 +6,12 @@
     <link rel="icon" href="/img/analyzer.png">
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
     <script>
         function myFunction() {
+            const locationForm = document.querySelector('#locationForm')
+            locationForm.style.display = "none";
             const loaderDiv = document.querySelector('.loading')
             loaderDiv.style.display = "block";
         }
@@ -20,7 +23,7 @@
             setTimeout(function () {
                 $('.three').css("display", "block");
             }, 1600);
-             setTimeout(function () {
+            setTimeout(function () {
                 $('.four').css("display", "block");
             }, 2400);
             setTimeout(function () {

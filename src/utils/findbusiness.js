@@ -1,5 +1,3 @@
-
-
 'use strict';
 let API_KEY = "Poh1MHuBIPG9ZGrbFGGqW4WXI2oe2lZg2EQe13R5LOGt9mxDHA_ZceT4TgZE6WIfNTalC9R1aLKbJx2TAm5AhAEcI1s2Y1nBComVmxl5jt_sBq3RQIT7ZgzPgv4zX3Yx"
 const yelp = require('yelp-fusion');
@@ -13,7 +11,8 @@ const business = (name, location, callback) => {
     }).then(response => {
         callback(undefined, response.jsonBody.businesses[0].url)
     }).catch(e => {
-        callback('Error connecting to getBusiness', undefined)
+        // console.error(e)
+        callback(e, undefined)
     });
 }
 
@@ -24,17 +23,24 @@ const reviews = (name, location, callback) => {
 
     business(name, location, function (error, businessURL) {
         if (error) {
-            callback('Error connecting to getBusiness', undefined)
+            // console.error(error)
+            callback(error, undefined)
         } else if (businessURL === undefined || businessURL === '' || businessURL === null) {
-            callback('Error connecting to getBusiness', undefined)
+            callback('Business information was not found', undefined)
         } else {
+            // console.log('URL->'+businessURL)
             const urlParts = businessURL.split('?')
             biz = urlParts[0]
 
             if (biz !== '' || biz !== undefined || biz !== null) {
                 const callPython = require('./pythonintegration')
                 const reviewsArray = callPython(biz)
-                callback(undefined, reviewsArray)
+                if(reviewsArray !== null && reviewsArray !== '' && reviewsArray !== undefined ) {
+                    callback(undefined, reviewsArray)
+                } else {
+                    callback('Error Scraping the data from:: '+biz ,undefined)
+                }
+                
             }
         }
     });

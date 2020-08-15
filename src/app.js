@@ -33,7 +33,7 @@ app.get('', (req, res) => {
 })
 
 app.get('/index', (req, res) => {
-    
+
     res.render('index', {
         title: 'Index',
         name: 'Sathya B',
@@ -44,6 +44,14 @@ app.get('/index', (req, res) => {
 app.get('/analyzer', (req, res) => {
     res.render('analyzer', {
         title: 'Index',
+        name: 'Sathya B',
+        page: 'analyzer'
+    })
+})
+
+app.get('/error', (req, res) => {
+    res.render('error', {
+        title: 'Error',
         name: 'Sathya B',
         page: 'analyzer'
     })
@@ -80,9 +88,20 @@ app.post('/result', (req, res) => {
     if (businessName !== null && businessName !== undefined && businessName !== '' && locationName !== null && locationName !== undefined && locationName !== '') {
         getReviews(businessName, locationName, (error, reviews) => {
             if (error) {
-                return res.send({ error })
+                let errorMsg 
+                if(error instanceof Error) {
+                    const errorBody =JSON.parse(error.response.body);
+                    errorMsg = errorBody.error.description
+                } else {
+                    errorMsg = error
+                }
+                res.render('error', {
+                    errorMessage: errorMsg
+                })
             } else if (reviews === '' || reviews === undefined || reviews === null) {
-                return res.send({ errorMessage: "no reviews found" })
+                res.render('error', {
+                    errorMessage: "No reviews found for "+businessName
+                })
             } else {
 
                 let best_review = ''
@@ -93,7 +112,6 @@ app.post('/result', (req, res) => {
                 let final_score = 0
                 let score = 0.0
                 let total_reviews = reviews.length
-                var promiseArray = [];
 
                 let counter = 0
                 reviews.forEach(element => {
@@ -101,9 +119,15 @@ app.post('/result', (req, res) => {
 
                     analyzeSentimentOfText(element.cleansed, function (error, sentiment) {
                         if (error) {
-                            return res.send({ error })
+                            res.render('error', {
+                                errorMessage: JSON.stringify(error)
+                            })
+                            // return res.send({ error })
                         } else if (sentiment === '' || sentiment === undefined || sentiment === null) {
-                            return res.send({ errorMessage: "Error fetching Sentiment score" })
+                            res.render('error', {
+                                errorMessage: "Error fetching Sentiment score"
+                            })
+                            // return res.send({ errorMessage: "Error fetching Sentiment score" })
                         } else {
                             sentimentScore = JSON.parse(sentiment)
                             score += sentimentScore.score
@@ -142,9 +166,16 @@ app.post('/result', (req, res) => {
 });
 
 function cleanReview(review) {
-    let clean = review.split('>')[2]
-    clean = clean.split("</span")[0]
-    return clean
+    if (review !== undefined && review !== null && review !== '') {
+        let clean = review.split('>')[2]
+        if (review !== undefined && review !== null && review !== '') {
+            clean = clean.split("</span")[0]
+            return clean
+        } else {
+            return review
+        }
+    }
+    return ''
 }
 
 app.listen(port, () => {
