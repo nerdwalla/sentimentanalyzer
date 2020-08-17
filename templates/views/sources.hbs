@@ -12,35 +12,59 @@
     <div id="boxes">
         <div id="right-box">
             <div class="icon-bar">
-                <div style="display:inline-block"> <a href="/index">Home</a></div>
-                <br />
-                <div style="display:inline-block"> <a href="/analyzer">Analyzer</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/about">About</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/sources" class="active">Sources</a></div>
-                <br />
+                <div><a href="/index">Home</a></div>
+                <div><a href="/analyzer">Analyzer</a></div>
+                <div><a href="/about">About</a></div>
+                <div><a href="/sources" class="active">Sources</a></div>
             </div>
         </div>
         <div id="left-box">
             <div class="main-content">
+                <br />
 
+                <p class="sources-header">On top of HTML and client side JS, the following languages/ API's were used to
+                    create this application </p>
+                <br />
+                <div class="source-row">
+                    <div class="source-column">
+                        <div class="source-card">
+                            <img src="/img/nodejs.svg" alt="NodeJS ">
+                            <div class="container">
+                                <p>Used for backend scripting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="source-column">
+                        <div class="source-card">
+                            <img src="/img/python.png" alt="Python Programing Language">
+                            <div class="container">
+                                <p>Used to Scrape Yelp for reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <h1> This app is developed using the following: </h1>
-                <ul>
-                    <li>
-                        Yelp API - to fetch Location information
-                    </li>
-                    <li>
-                        Google Cloud API - to analyze the reviews and interprets it meaning programatically
-                    </li>
-                    <li>
-                        Python - to Scrape Yelp for reviews
-                    </li>
-                </ul>
+                <div class="source-row">
+                    <div class="source-column">
+                        <div class="source-card">
+                            <img src="/img/google-cloud.svg" alt="Google Cloud">
+                            <div class="container">
+                                <p>Used to analyze the reviews and interprets it meaning programatically</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="source-column">
+                        <div class="source-card">
+                            <img src="/img/Yelp-logo-vector-01.svg" alt="Yelp API">
+                            <div class="container">
+                                <p>Used to fetch Location information</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-        {{!-- {{>footer}} --}}
 </body>
 
 </html>

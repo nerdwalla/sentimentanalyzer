@@ -32,7 +32,9 @@ def search_reviews(business_url):
     return reviews
 
 def clean_review(review):
-    user_removed = re.sub(r'@[A-Za-z0-9]+','',review.decode('utf-8'))
+    html_tags_removed = re.sub(r"\[.*?\]", "", review.decode('utf-8'))
+    html_break_removed =re.sub('&nbsp;','',html_tags_removed )
+    user_removed = re.sub(r'@[A-Za-z0-9]+','',html_break_removed)
     line_spaces_removed = re.sub(r"(?<=[a-z])\r?\n"," ", user_removed)
     link_removed = re.sub('https?://[A-Za-z0-9./]+','',line_spaces_removed )
     number_removed = re.sub('[^a-zA-Z]', ' ', link_removed)

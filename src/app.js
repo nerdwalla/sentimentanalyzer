@@ -1,11 +1,10 @@
+require('dotenv').config()
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const bodyParser = require('body-parser');
 const getReviews = require('./utils/findbusiness')
 const analyzeSentimentOfText = require('./utils/sentimentanalysis')
-require('dotenv').config()
-// var exec = require('child_process').exec
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -148,12 +147,16 @@ app.post('/result', (req, res) => {
 
                                 const resp = {
                                     final_score: Math.round(final_score * 100) / 100,
+                                    final_score_perc: getPercent(final_score),
                                     best_review: cleanReview(best_review),
                                     best_review_rating,
+                                    best_review_rating_perc: getPercent(best_review_rating),
                                     worst_review: cleanReview(worst_review),
-                                    worst_review_rating
+                                    worst_review_rating,
+                                    worst_review_rating_perc: getPercent(worst_review_rating),
+                                    overall_message: getOverallMessage(final_score, businessName, locationName)
                                 }
-
+                                // res.type('.html');  
                                 res.render('result', resp)
                             }
                         }
@@ -175,6 +178,28 @@ function cleanReview(review) {
         } else {
             return review
         }
+    }
+    return ''
+}
+
+function getPercent(decimalNumber) {
+    if (decimalNumber !== undefined && decimalNumber !== null) {
+        let percent = (decimalNumber * 100).toString() + '%'
+        return percent;
+    }
+    return ''
+}
+
+function getOverallMessage(final_score, businessName, location) {
+    if (final_score !== undefined && final_score !== null) {
+        if(final_score > 0) {
+            const percent = getPercent(final_score)
+            return 'This means that '+  percent + ' of customer have positive experience at '+businessName+' at '+location+' location'; 
+        } else if(final_score < 0) {
+            return 'This means that in general customers have negative things to say about '+businessName+' at '+location+' location'; 
+        } else {
+            return 'This means that in general customers have neutral about '+businessName+' at '+location+' location'; 
+        } 
     }
     return ''
 }

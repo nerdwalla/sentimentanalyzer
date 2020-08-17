@@ -12,93 +12,60 @@
     <div id="boxes">
         <div id="right-box">
             <div class="icon-bar">
-                <div style="display:inline-block"> <a href="/index">Home</a></div>
-                <br />
-                <div style="display:inline-block"> <a href="/analyzer" class="active">Analyzer</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/about">About</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/sources">Sources</a></div>
-                <br />
+                <div><a href="/index">Home</a></div>
+                <div><a href="/analyzer">Analyzer</a></div>
+                <div><a href="/about">About</a></div>
+                <div><a href="/sources">Sources</a></div>
             </div>
         </div>
         <div id="left-box" style="width: 75%;">
             <div class="main-content">
-                <div class="row" style="padding-top: 10%;">
-                    <div class="result-column result-one">
-                        <div class="card">
-                            <div class="overall_review"></div>
-                            {{!-- <img src="/img/info.png"  alt="Information" height="100px" width="100px" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px"> --}}
-                            <div class="container">
-                                <h2>Overall Sentiment</h2>
-                                <p class="title"> The Overall rating is: {{final_score}}</p>
+                <div class="result-container">
+                    <div class="result-row">
+
+                        <div class="result-card">
+                            <p class="result-header">The Overall sentiment rating of data analyzed is:
+                                {{final_score}}.
+                                {{overall_message}} </p>
+                        </div>
+
+                    </div>
+                    <div class="result-row">
+                        <div class="result-column line" style="float: left;">
+                            <div class="result-card">
+                                {{!-- <div id="correct-img">
+
+                                </div> --}}
+                                <img src="/img/correct.png" style="display: block; margin-left: auto; margin-right: auto;">
+                                <p class="column-title">The best review rating is : {{best_review_rating}}. In other
+                                    words
+                                    {{best_review_rating_perc}} of people had positive experience</p>
+                                <div class="container">
+                                    <p>{{best_review}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="result-column result-two">
-                        <div class="card">
-                            <div class="positive_review"></div>
-                            {{!-- <img src="/img/correct.png" height="100px" width="100px" alt="Positive" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px"> --}}
-                            <div class="container">
-                                <h2>Positive Sentiment</h2>
-                                <p class="title"> The best review rating is : {{best_review_rating}}</p>
-                                <p>{{best_review}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="result-column result-three">
-                        <div class="card">
-                            <div class="negative_review"></div>
-                            {{!-- <img src="/img/wrong.png" height="100px" width="100px" alt="Negative" style="display: block; margin-left: auto; margin-right: auto; padding-top: 10px;"> --}}
-                            <div class="container">
-                                <h2>Negative Sentiment</h2>
-                                <p class="title"> The worst review rating is : {{worst_review_rating}}</p>
-                                <p>{{worst_review}}</p>
+
+                        <div class="result-column" style="float: right;">
+                            <div class="result-card">
+                                {{!-- <div id="wrong-img">
+                                    
+                                </div> --}}
+                                <img src="/img/wrong.png" style="display: block; margin-left: auto; margin-right: auto;">
+                                <p class="column-title">The worst review rating is : {{worst_review_rating}}. In other
+                                    words
+                                    {{worst_review_rating_perc}} of people had negative experience
+                                </p>
+                                <div class="container">
+                                    <p>{{worst_review}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{!-- <div class="result-output">
-                    <div class="center-div">
-                        <h2>Sentiment Score is: {{final_score}}</h2>
-                        <br />
-                        <br />
-                        <br />
-                    </div>
-                    <div class="left">
-                        <div class="centered">
-                            <img src="/img/correct.png" alt="Positive">
-                            <br />
-                            <br />
-                            {{best_review}}
-                            <br />
-                            <br />
-                            <br />
-                            <h2>The best review rating is :
-                                {{best_review_rating}}
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div class="right">
-                        <div class="centered">
-                            <img src="/img/wrong.png" alt="Negative">
-                            <br />
-                            <br />
-                            {{worst_review}}
-                            <br />
-                            <br />
-                            <br />
-                            <h2>The worst review rating is :
-                                {{worst_review_rating}}
-                            </h2>
-                        </div>
-                    </div>
-                </div> --}}
-
             </div>
         </div>
-        {{!-- <script src="/js/" --}}
+    </div>
 </body>
 
-</html >
+</html>

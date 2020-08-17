@@ -34,6 +34,6 @@ bizForm.addEventListener('submit', (e) => {
     // }, 3000);
     locationQuestion.style.display = "inline-block"
     bizForm.style.display = "none"
-    locationForm.style.display = "block"
+    locationForm.style.display = "inline-block"
     locSearch.value = ''
 })

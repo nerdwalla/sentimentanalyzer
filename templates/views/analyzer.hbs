@@ -6,8 +6,9 @@
     <link rel="icon" href="/img/analyzer.png">
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
     {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+    <meta name = "viewport" content = "width = device-width, user-scalable = 0, initial-scale = 1.0, maximum-scale = 1.0" />
     <script>
         function myFunction() {
             const locationForm = document.querySelector('#locationForm')
@@ -42,14 +43,10 @@
     <div id="boxes">
         <div id="right-box">
             <div class="icon-bar">
-                <div style="display:inline-block"> <a href="/index">Home</a></div>
-                <br />
-                <div style="display:inline-block"> <a href="/analyzer" class="active">Analyzer</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/about">About</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/sources">Sources</a></div>
-                <br />
+                <div><a href="/index">Home</a></div>
+                <div><a href="/analyzer" class="active">Analyzer</a></div>
+                <div><a href="/about">About</a></div>
+                <div><a href="/sources">Sources</a></div>
             </div>
         </div>
         <div id="left-box">
@@ -89,19 +86,21 @@
                 <div id="bottom-form">
                     <form id="bizForm">
                         <button type="submit" id="bizSubmit" class="user-input-button"
-                            style="float: right;">Send</button>
+                            style="float: right; width: 20vw;">Send</button>
                         <div style="overflow: hidden; padding-right: .5em;">
-                            <input type="text" id="bizInput" class="user-textbox" name="businessname" placeholder="Business" style="width: 100%;">
+                            <input type="text" id="bizInput" class="user-textbox" name="businessname"
+                                placeholder="Business" style="width: 70vw;">
                         </div>
-
-
                     </form>
-                    <br />
+                    {{!-- <br /> --}}
                     <form id="locationForm" method="POST" action="/result" style="display: none;">
-                        <button type="submit" onclick="myFunction()" id="locationSubmit" class="user-input-button" style="float: right;">Send</button>
+                        <button type="submit" onclick="myFunction()" id="locationSubmit" class="user-input-button"
+                            style="float: right; width: 20vw;">Send</button>
                         <div style="overflow: hidden; padding-right: .5em;">
-                            <input type="text" id="bizInputHidden" class="user-textbox" name="bizInputHidden" style="display: none;">
-                            <input type="text" id="locInput" class="user-textbox" name="locationname" placeholder="Location" style="width: 100%;">
+                            <input type="text" id="bizInputHidden" class="user-textbox" name="bizInputHidden"
+                                style="display: none;">
+                            <input type="text" id="locInput" class="user-textbox" name="locationname"
+                                placeholder="Location" style="width: 70vw;">
                         </div>
                     </form>
                 </div>

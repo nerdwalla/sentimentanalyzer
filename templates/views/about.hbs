@@ -12,42 +12,34 @@
     <div id="boxes">
         <div id="right-box">
             <div class="icon-bar">
-                <div style="display:inline-block"> <a href="/index">Home</a></div>
-                <br />
-                <div style="display:inline-block"> <a href="/analyzer">Analyzer</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/about" class="active">About</a></div>
-                <br />
-                <div style="display:inline-block"><a href="/sources">Sources</a></div>
-                <br />
+                <div><a href="/index">Home</a></div>
+                <div><a href="/analyzer">Analyzer</a></div>
+                <div><a href="/about" class="active">About</a></div>
+                <div><a href="/sources">Sources</a></div>
             </div>
         </div>
         <div id="left-box">
             <div class="main-content">
-
-
-                {{!-- <p class="about-title">
-                    &lt;SOFTWARE ENGINEER /&gt; <br />
-                </p> --}}
-                <div class="row">
+                <div class="row" style="height: 50vh;">
                     <div class="column">
                         <div class="card">
-                            <img src="/img/me.JPG" alt="Name" style="width:100%">
+                            {{!-- <div class="img-class"> --}}
+                                <img src="/img/me.JPG" alt="Name" style="width:100%;">
+                            {{!-- </div> --}}
                             <div class="container">
-                                <h2>Nara B</h2>
-                                <p class="title"> SOFTWARE ENGINEER </p>
-                                <p>Full stack developer who focuses on writing clean, elegant and efficient applications.</p>
-                                <p><button class="about-button" onclick="window.location.href='mailto:nerdwalla@gmail.com'">Contact</button></p>
+                                <h2 class="column-header">NARA B</h2>
+                                <p class="column-title"> SOFTWARE ENGINEER </p>
+                                <p>Full stack developer who focuses on writing clean, elegant and efficient
+                                    applications.</p>
+                                <p><button class="about-button"
+                                        onclick="window.location.href='mailto:nerdwalla@gmail.com'">Contact</button></p>
                             </div>
                         </div>
                     </div>
+
                 </div>
-
-                
-
             </div>
         </div>
-
 </body>
 
 </html>
