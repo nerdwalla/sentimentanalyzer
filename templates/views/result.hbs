@@ -18,12 +18,12 @@
                 <div><a href="/sources">Sources</a></div>
             </div>
         </div>
-        <div id="left-box" style="width: 75%;">
+        <div id="left-box">
             <div class="main-content">
-                <div class="result-container">
+                <div class="result-container-top">
                     <div class="result-row">
 
-                        <div class="result-card">
+                        <div class="result-card1">
                             <p class="result-header">The Overall sentiment rating of data analyzed is:
                                 {{final_score}}.
                                 {{overall_message}} </p>
@@ -31,33 +31,48 @@
 
                     </div>
                     <div class="result-row">
-                        <div class="result-column line" style="float: left;">
+                        <div class="result-column" style="float: left;">
                             <div class="result-card">
-                                {{!-- <div id="correct-img">
 
-                                </div> --}}
-                                <img src="/img/correct.png" style="display: block; margin-left: auto; margin-right: auto;">
-                                <p class="column-title">The best review rating is : {{best_review_rating}}. In other
-                                    words
-                                    {{best_review_rating_perc}} of people had positive experience</p>
-                                <div class="container">
-                                    <p>{{best_review}}</p>
+                                <div>
+                                    <div style="display:inline-block; width: 100%; margin-bottom: 10px;">
+                                        <div style="text-align: left"><img class="result-left-img"
+                                                src="/img/correct.png"></div>
+                                        <div style="text-align: right"><img class="result-right-img"
+                                                src="/img/yelp.png"></div>
+                                        <div class="result-column-title" style="color: #03fc84;">Positive Review</div>
+                                    </div>
+                                    <div class="result-container">
+                                        The best review rating is : {{best_review_rating}}. In other
+                                        words {{best_review_rating_perc}} of people had positive experience
+                                    </div>
+                                    {{!-- <p class="column-title"></p> --}}
+                                    <div class="result-container">
+                                        <p>{{best_review}}</p>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
 
                         <div class="result-column" style="float: right;">
                             <div class="result-card">
-                                {{!-- <div id="wrong-img">
-                                    
-                                </div> --}}
-                                <img src="/img/wrong.png" style="display: block; margin-left: auto; margin-right: auto;">
-                                <p class="column-title">The worst review rating is : {{worst_review_rating}}. In other
-                                    words
-                                    {{worst_review_rating_perc}} of people had negative experience
-                                </p>
-                                <div class="container">
-                                    <p>{{worst_review}}</p>
+                                <div>
+                                    <div style="display:inline-block; width: 100%; margin-bottom: 10px;">
+                                        <div style="text-align: left"><img class="result-left-img" src="/img/wrong.png">
+                                        </div>
+                                        <div style="text-align: right"><img class="result-right-img"
+                                                src="/img/yelp.png"></div>
+                                        <div class="result-column-title"  style="color: #d62222;">Negative Review</div>
+                                    </div>
+                                    <div class="result-container">
+                                        The worst review rating is : {{worst_review_rating}}. In other
+                                        words {{worst_review_rating_perc}} of people had negative experience
+                                    </div>
+                                    {{!-- <p class="column-title"></p> --}}
+                                    <div class="result-container">
+                                        <p>{{worst_review}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -7,14 +7,14 @@ Created on Mon Aug 10 10:21:02 2020
 
 import re
 import sys
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
+#from google.cloud import language
+#from google.cloud.language import enums
+#from google.cloud.language import types
 from nltk.tokenize import WordPunctTokenizer
 from bs4 import BeautifulSoup as soup  # HTML data structure
 from urllib.request import urlopen as uReq  # Web client
 from decimal import Decimal
-import os
+#import os
 
 contents_to_avoid = ["so businesses can't pay to alter or remove their reviews.", "your trust is our top concern"]
 
@@ -44,13 +44,20 @@ def clean_review(review):
     clean_review = (' '.join(words)).strip()
     return clean_review
 
+def tags_removed_review(review):
+    html_tags_removed = re.sub(r"\[.*?\]", "", review.decode('utf-8'))
+    html_break_removed =re.sub('&nbsp;','',html_tags_removed )
+    # user_removed = re.sub(r'@[A-Za-z0-9]+','',html_break_removed)
+    return html_break_removed
+
 def analyze_reviews(business_url):
     reviews = search_reviews(business_url)
   
     for review in reviews:
         cleaned_review = clean_review(review.span.text.encode('utf-8'))
         if cleaned_review not in contents_to_avoid:
-            print(review)
+            tag_removed_review = tags_removed_review(review.span.text.encode('utf-8'))
+            print(tag_removed_review)
             print(cleaned_review)
             
     sys.stdout.flush()

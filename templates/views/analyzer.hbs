@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {{!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
     {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
-    <meta name = "viewport" content = "width = device-width, user-scalable = 0, initial-scale = 1.0, maximum-scale = 1.0" />
+    <meta name="viewport" content="width = device-width, user-scalable = 0, initial-scale = 1.0, maximum-scale = 1.0" />
     <script>
         function myFunction() {
             const locationForm = document.querySelector('#locationForm')
@@ -16,6 +16,7 @@
             const loaderDiv = document.querySelector('.loading')
             loaderDiv.style.display = "block";
         }
+
 
         $('.one').ready(function () {
             setTimeout(function () {
@@ -31,6 +32,7 @@
                 $('#bottom-form').css("display", "inline-block");
             }, 3000);
         });
+
     </script>
 </head>
 
@@ -82,6 +84,11 @@
                             idk
                         </div>
                     </div>
+
+                    <div class="yours five messages">
+                        <div class="message last" id="askLocation" style="display: none;">{{addresses}}</div>
+                    </div>
+
                 </div>
                 <div id="bottom-form">
                     <form id="bizForm">
@@ -92,8 +99,10 @@
                                 placeholder="Business" style="width: 70vw;">
                         </div>
                     </form>
+
+
                     {{!-- <br /> --}}
-                    <form id="locationForm" method="POST" action="/result" style="display: none;">
+                    <form id="locationForm" method="POST" action="/intermediate" style="display: none;">
                         <button type="submit" onclick="myFunction()" id="locationSubmit" class="user-input-button"
                             style="float: right; width: 20vw;">Send</button>
                         <div style="overflow: hidden; padding-right: .5em;">
@@ -103,6 +112,15 @@
                                 placeholder="Location" style="width: 70vw;">
                         </div>
                     </form>
+
+                    {{!-- <form id="bizListForm" method="POST" action="/result" style="display: none;">
+                        <button type="submit" id="bizListSubmit" class="user-input-button"
+                            style="float: right; width: 20vw;">Send</button>
+                        <div style="overflow: hidden; padding-right: .5em;">
+                            <input type="text" id="bizListInput" class="user-textbox" name="businessname"
+                                placeholder="Business" style="width: 70vw;">
+                        </div>
+                    </form> --}}
                 </div>
 
             </div>

@@ -274,51 +274,27 @@ input[type=text] {
 }
 
 .row {
-	/* height: 50vh; */
 	height: 10%;
 }
 
 .column {
 	margin: 0 auto;
 	width: 30%;
-	/* width: 30vw; */
-	/* height: 20%; */
-	/* max-height: 50px; */
-}
-
-/* Use a media query to add a breakpoint at 800px: */
-
-@media screen and (max-width: 800px) {
-	.column {
-		width: 60%;
-		/* height: 100%; */
-		/* The width is 100%, when the viewport is 800px or smaller */
-	}
 }
 
 .result-container {
-	/* align-self: center; */
-	/* margin: auto; */
 	width: 90vw;
 	padding: 10px;
 }
 
 .result-row {
-	display: table;
-}
-.result-column {
-	display: table-cell;
-	/* float: left; */
-	width: 49%;
-	/* margin-bottom: 16px; */
-	/* padding: 0 8px; */
-	/* height: 100%; */
+	/* display: table; */
+	width: 100%;
 }
 
-.line {
-	border-right: 2px solid #524848;
-    margin-top: -11px;
-    padding-top: 11px;
+.result-column {
+	display: table-cell;
+	width: 49%;
 }
 
 .card {
@@ -327,26 +303,48 @@ input[type=text] {
 }
 
 .card img {
-	height: calc(15vw / .75);
-	width: 15vw;
+	/* height: calc(15vw / .75); */
+	/* width: 15vw; */
+	height: 100%;
+	width: 100%
+	/* max-width: 900px */
 }
 
-.result-card img {
-	height: calc(3vw / .75);
-	width: 3vw;
-	align-self: flex-start;
+.result-left-img {
+	height: 50px;
+	width: 50px;
+	float: left;
 }
 
-/* .result-card {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-} */
+.result-right-img {
+	height: 50px;
+	width: 50px;
+	float: right;
+	/* position: absolute; */
+	/* display:inline-block; */
+}
 
-/* .result-card p{
+
+.result-card {
+	border-radius: 25px;
+	border: 1px solid #969595;
+	/* padding: 20px; */
+	margin: 8px;
+	padding: 10px;
+}
+
+.result-column-title {
+	color: gray;
+	/* font-size: 12px; */
+	font-size: 20px;
+	margin: 0;
 	text-align: center;
-	text-align: start;
-} */
+}
+
+.result-container {
+	border-top: 1px solid #969595;	
+	width: auto;
+}
 
 .seperator {
 	height: 100%;
@@ -372,11 +370,19 @@ input[type=text] {
 .source-column {
 	width: 25%;
 	display: inline-block;
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+	margin: 8px;
+}
+
+.source-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+	padding: 5px;
 }
 
 .source-card img {
-	height: calc(6vw / .75);
-	width: 6vw;
+	height: 100px;
+	width: 100px;
 	align-self: center;
 }
 
@@ -401,12 +407,6 @@ input[type=text] {
 .container {
 	padding: 0 16px;
 }
-
-/* .container::after {
-	content: "";
-	clear: both;
-	display: table;
-} */
 
 .title {
 	color: grey;
@@ -472,4 +472,98 @@ div.overall_review {
 	background-repeat: no-repeat;
 	background-position: center;
 	padding-top: 10px
+}
+
+/* On screens that are 992px or less, set the background color to blue 
+   This is for tablet*/
+
+@media screen and (max-width: 992px) {
+	.column {
+		margin: 0 auto;
+		width: 60%;
+	}
+	.source-column {
+		width: 100%;
+		display: inline-block;
+		/* box-shadow: 0 0 rgba(0, 0, 0, 0.2); */
+		margin: 0px;
+		margin-bottom: 10px;
+	}
+	.source-card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		text-align: center;
+	}
+	.result-card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		margin: 8px;
+		padding: 10px;
+		/* width: 50%; */
+	}
+}
+
+/* On screens that are 600px or less, set the background color to olive 
+  	This is for Phone */
+
+@media screen and (max-width: 600px) {
+	.column {
+		margin: 0 auto;
+		width: 100%;
+	}
+	.source-row {
+		width: 100%;
+	}
+	.source-column {
+		width: 100%;
+		display: inline-block;
+		/* box-shadow: 0 0 rgba(0, 0, 0, 0.2); */
+		margin: 0px;
+		margin-bottom: 10px;
+	}
+	.source-card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		text-align: center;
+		padding: 5px;
+	}
+	.source-card img {
+		height: 50px;
+		width: 50px;
+		align-self: center;
+	}
+	
+	.result-column {
+		/* display: table-cell; */
+		width: 100%;
+	}
+
+	.result-left-img {
+		height: 25px;
+		width: 25px;
+		float: left;
+	}
+	
+	.result-right-img {
+		height: 25px;
+		width: 25px;
+		float: right;
+		/* position: absolute; */
+		/* display:inline-block; */
+	}
+	
+	
+	.result-card {
+		border-radius: 25px;
+		border: 1px solid #969595;
+		/* padding: 20px; */
+		margin: 8px;
+		padding: 10px;
+	}
+	
+	.result-column-title {
+		color: gray;
+		/* font-size: 12px; */
+		font-size: 15px;
+		margin: 0;
+		text-align: center;
+	}
+	
 }
