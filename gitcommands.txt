@@ -1,0 +1,10 @@
+For GitHUB
+-------------------------------
+- git add .
+- git commit -m "<YOUR-MESSAGE>"
+- git push 
+- git status
+
+For heroku
+-------------------------------
+-git push heroku master
