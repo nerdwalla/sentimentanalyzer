@@ -371,7 +371,7 @@ input[type=text] {
 
 .resultImage {
 	width: auto;
-	height: 10vw;
+	height: 10vh;
 	display: block;
  	margin-left: auto;
   	margin-right: auto;
@@ -514,6 +514,25 @@ div.overall_review {
 		padding: 10px;
 		/* width: 50%; */
 	}
+	
+	.result-header {
+		font-weight: bold;
+		font-size: 3vw;
+	}
+	
+	.result-disclaimer-header {
+		font-weight: bold;
+		font-size: 1vw;
+		color: red;
+	}
+
+	.resultImage {
+		width: auto;
+		height: 10vh;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 /* On screens that are 600px or less, set the background color to olive 
@@ -579,6 +598,20 @@ div.overall_review {
 		font-size: 15px;
 		margin: 0;
 		text-align: center;
+	}
+
+	.result-disclaimer-header {
+		font-weight: bold;
+		font-size: 1vw;
+		color: red;
+	}
+
+	.resultImage {
+		width: auto;
+		height: 10vh;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 }
