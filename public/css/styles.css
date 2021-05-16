@@ -7,7 +7,7 @@ body {
 	padding: 0 16px;
 	min-height: 100vh;
 	width: screen-width;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 header a {
@@ -361,6 +361,17 @@ input[type=text] {
 .result-header {
 	font-weight: bold;
 	font-size: 3vw;
+}
+
+.result-disclaimer-header {
+	font-weight: bold;
+	font-size: 1vw;
+	color: red;
+}
+
+.resultImage {
+	width: 80vw;
+	height: auto;
 }
 
 .source-row {
