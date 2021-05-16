@@ -12,8 +12,8 @@ import sys
 #from google.cloud.language import types
 from nltk.tokenize import WordPunctTokenizer
 from bs4 import BeautifulSoup as soup  # HTML data structure
-from urllib.request import urlopen as uReq  # Web client
-from decimal import Decimal
+#from urllib.request import urlopen as uReq  # Web client
+#from decimal import Decimal
 #import os
 
 contents_to_avoid = ["so businesses can't pay to alter or remove their reviews.", "your trust is our top concern"]
@@ -21,14 +21,18 @@ contents_to_avoid = ["so businesses can't pay to alter or remove their reviews."
 def search_reviews(business_url):
     if not business_url:
         return
-    uClient = uReq(business_url)
+    #uClient = uReq(business_url)
     
     # parses html into a soup data structure to traverse html
     # as if it were a json data type.
-    page_soup = soup(uClient.read(), "html.parser")
-    uClient.close()
-       
-    reviews = page_soup.findAll("p", {"class": "lemon--p__373c0__3Qnnj text__373c0__2Kxyz comment__373c0__3EKjH text-color--normal__373c0__3xep9 text-align--left__373c0__2XGa-"})
+    #page_soup = soup(uClient.read(), "html.parser")
+    #uClient.close()
+
+    page = requests.get(business_url)
+    pagesoup = soup(page.content, 'html.parser')
+
+    #reviews = page_soup.findAll("p", {"class": "lemon--p__373c0__3Qnnj text__373c0__2Kxyz comment__373c0__3EKjH text-color--normal__373c0__3xep9 text-align--left__373c0__2XGa-"})
+    reviews = pagesoup.findAll("p", {"class": "comment__373c0__1M-px css-n6i4z7"})
     return reviews
 
 def clean_review(review):
