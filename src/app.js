@@ -220,7 +220,8 @@ app.post('/result', (req, res) => {
                                     worst_review: cleanReview(worst_review),
                                     worst_review_rating,
                                     worst_review_rating_perc: getPercent(worst_review_rating),
-                                    overall_message: getOverallMessage(final_score, businessName, location)
+                                    overall_message: getOverallMessage(final_score, businessName, location),
+                                    dispImg: getSentimentImage(final_score)
                                 }
 
                                 res.render('result', resp)
@@ -272,6 +273,23 @@ function getPercent(decimalNumber) {
     if (decimalNumber !== undefined && decimalNumber !== null) {
         let percent = (decimalNumber * 100).toString() + '%'
         return percent;
+    }
+    return ''
+}
+
+function getSentimentImage(final_score) {
+    if (final_score !== undefined && final_score !== null) {
+        if(final_score >= -1.0 && final_score < -0.5 ) {
+            return '../public/img/emotions-ClearlyNegative.jpg'
+        } else if(final_score >= -0.5 && final_score < 0 ) {
+            return '../public/img/emotions-Negative.jpg'
+        } else if(final_score == 0 ) {
+            return '../public/img/emotions-Neutral.jpg'
+        } else if(final_score > 0 && final_score < 0.5 ) {
+            return '../public/img/emotions-Positive.jpg'
+        } else if(final_score >= 0.5 && final_score <= 1 ) {
+            return '../public/img/emotions-ClearlyPositive.jpg'
+        }
     }
     return ''
 }
