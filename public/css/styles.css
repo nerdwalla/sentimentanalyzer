@@ -10,6 +10,10 @@ body {
 	overflow: scroll;
 }
 
+.center {
+	text-align: center;
+  }
+
 header a {
 	color: #888888;
 	margin-right: 16px;
@@ -371,7 +375,7 @@ input[type=text] {
 
 .resultImage {
 	width: auto;
-	height: 10vh;
+	height: 20vh;
 	display: block;
  	margin-left: auto;
   	margin-right: auto;
@@ -522,7 +526,7 @@ div.overall_review {
 	
 	.result-disclaimer-header {
 		font-weight: bold;
-		font-size: 1vw;
+		font-size: 3vw;
 		color: red;
 	}
 
@@ -602,7 +606,7 @@ div.overall_review {
 
 	.result-disclaimer-header {
 		font-weight: bold;
-		font-size: 1vw;
+		font-size: 3vw;
 		color: red;
 	}
 
