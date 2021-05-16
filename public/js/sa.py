@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup as soup  # HTML data structure
 #from urllib.request import urlopen as uReq  # Web client
 #from decimal import Decimal
 #import os
+import requests
 
 contents_to_avoid = ["so businesses can't pay to alter or remove their reviews.", "your trust is our top concern"]
 
