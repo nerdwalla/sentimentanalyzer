@@ -280,15 +280,15 @@ function getPercent(decimalNumber) {
 function getSentimentImage(final_score) {
     if (final_score !== undefined && final_score !== null) {
         if(final_score >= -1.0 && final_score < -0.5 ) {
-            return '../public/img/emotions-ClearlyNegative.jpg'
+            return '/img/emotions-ClearlyNegative.jpg'
         } else if(final_score >= -0.5 && final_score < 0 ) {
-            return '../public/img/emotions-Negative.jpg'
+            return '/img/emotions-Negative.jpg'
         } else if(final_score == 0 ) {
-            return '../public/img/emotions-Neutral.jpg'
+            return '/img/emotions-Neutral.jpg'
         } else if(final_score > 0 && final_score < 0.5 ) {
-            return '../public/img/emotions-Positive.jpg'
+            return '/img/emotions-Positive.jpg'
         } else if(final_score >= 0.5 && final_score <= 1 ) {
-            return '../public/img/emotions-ClearlyPositive.jpg'
+            return '/img/emotions-ClearlyPositive.jpg'
         }
     }
     return ''
