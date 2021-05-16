@@ -370,8 +370,11 @@ input[type=text] {
 }
 
 .resultImage {
-	width: 80vw;
-	height: auto;
+	width: auto;
+	height: 10vw;
+	display: block;
+ 	margin-left: auto;
+  	margin-right: auto;
 }
 
 .source-row {
